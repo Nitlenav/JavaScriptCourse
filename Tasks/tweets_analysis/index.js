@@ -5,14 +5,35 @@ const LineByLineReader = require('line-by-line'),
 
 const data = [];
 
+
 lr.on('error', function (err) {
-    // 'err' contains error object
+    // 'err' для вывода ошибок 
+    console.log(err);
+    lr.close();
 });
 
 lr.on('line', function (line) {
     // pause emitting of lines...
-    lr.pause();
+    //let flag = /(\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*)/g;
+    //let  adres = flag.exec(line)
+    let MapAutors = new Map();
+    let autors = line.split(";");
 
+ if (autors[4] != undefined){
+     if (MapAutors.get(autors[4]))
+     {
+let countAutors = MapAutors.get(autors[4])
+ ++countAutors
+MapAutors.set(autors[4], countAutors)
+     }
+     else
+     {
+MapAutors.set(autors[4],1)
+     }
+ }
+
+
+    lr.pause();
     // ...do your asynchronous line processing..
     setTimeout(function () {
         // ...and continue emitting lines.
@@ -24,6 +45,7 @@ lr.on('line', function (line) {
 lr.on('end', function () {
     // All lines are read, file is closed now.
     main();
+    console.log("End");
 });
 
 function main () {
