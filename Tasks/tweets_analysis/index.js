@@ -75,7 +75,7 @@ let masLine = parseLine.split(";");
             }
 
     function errors () {
-      reject(new Error("Кака та ошибка"));
+      reject(new Error("Кака та ошибка")); // Как эту фигню вызвать пока не разобрался, экспримент продолжается.
     };      
 
 });}
