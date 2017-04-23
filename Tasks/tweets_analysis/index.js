@@ -108,7 +108,7 @@ valTweet.forEach(function(value, key, valTweet) {
 console.log("Самый популярный Твит - " + keyMapTwet + "; его перепостили " + maxTwet + " раз.");
 }
 
-function analisDataTCity (valCity){//popularCity
+function analisDataTCity (valCity){
         let maxCity = 0;
         let keyMapCity;
 valCity.forEach(function(value, key, valCity) {
